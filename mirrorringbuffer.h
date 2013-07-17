@@ -2,6 +2,8 @@
  * mirrorringbuffer.h
  *
  *  Created on: 2013-7-17
+ *
+ *  http://en.wikipedia.org/wiki/Circular_buffer
  */
 
 #ifndef MIRRORRINGBUFFER_H_
