@@ -7,7 +7,10 @@
 #ifndef MIRRORRINGBUFFER_H_
 #define MIRRORRINGBUFFER_H_
 
-typedef char  ElemType[16];
+typedef struct
+{
+  int id;
+}ElemType;
 
 /* Circular buffer object */
 typedef struct {

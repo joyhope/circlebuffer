@@ -4,6 +4,7 @@
  *  Created on: 2013-7-17
  */
 #include <stdio.h>
+#include <stdlib.h>
 #include "mirrorringbuffer.h"
 
 void cbInit(CircularBuffer *cb, int size) {
