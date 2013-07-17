@@ -12,18 +12,18 @@
 typedef struct
 {
   int id;
-}ElemType;
+} ElemType;
 
 /* Circular buffer object */
-typedef struct {
-    int         size;   /* maximum number of elements           */
-    int         start;  /* index of oldest element              */
-    int         end;    /* index at which to write new element  */
-    int         s_msb;
-    int         e_msb;
-    ElemType   *elems;  /* vector of elements                   */
+typedef struct
+{
+  int size; /* maximum number of elements           */
+  int start; /* index of oldest element              */
+  int end; /* index at which to write new element  */
+  int s_msb;
+  int e_msb;
+  ElemType *elems; /* vector of elements                   */
 } CircularBuffer;
-
 
 extern void cbInit(CircularBuffer *cb, int size);
 extern int cbIsFull(CircularBuffer *cb);
