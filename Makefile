@@ -11,23 +11,23 @@ all: circlebuffer$(EXE)
 CC=gcc
 
 .c.o: 
-	@echo --[CC]-- $<
+	@echo [CC]: $<
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 %.out:
-	@echo --[OUT]-- $^
+	@echo [OUT]: $^
 	@$(CC) $(CFLAGS) $^ $(LDFLAGS)  -o $@
 
 %.exe:
-	@echo --[EXE]-- $^
+	@echo [EXE]: $^
 	@$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(sources)
 
 %.a:
-	@echo --[AR]-- $@
+	@echo [AR]: $@
 	@ar rcs $@ $^
 
 %.d: %.c
-	@echo --[DEP]-- $<
+	@echo [DEP]: $<
 	@$(SHELL) -ec '$(CC) -MM -MQ $*.o $(CFLAGS) $< > $@'
 
 
