@@ -1,4 +1,6 @@
 CFLAGS = -I. -Wall -m32 -g
+LDFLAGS  = 
+LIBS     =  
 
 ifeq ($(OSTYPE),linux)
 EXE =
@@ -20,7 +22,7 @@ CC=gcc
 
 %.exe:
 	@echo [EXE]: $^
-	@$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(sources)
+	@$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(sources) $(LIBS)
 
 %.a:
 	@echo [AR]: $@
