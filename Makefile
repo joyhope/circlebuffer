@@ -1,6 +1,12 @@
 CFLAGS = -I. -Wall -m32 -g
 
-all: circlebuffer.out
+ifeq ($(OSTYPE),linux)
+EXE =
+else
+EXE = .exe
+endif
+
+all: circlebuffer$(EXE)
 
 CC=gcc
 
@@ -11,6 +17,10 @@ CC=gcc
 %.out:
 	@echo --[OUT]-- $^
 	@$(CC) $(CFLAGS) $^ $(LDFLAGS)  -o $@
+
+%.exe:
+	@echo --[EXE]-- $^
+	@$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(sources)
 
 %.a:
 	@echo --[AR]-- $@
@@ -29,11 +39,11 @@ ifneq ($(MAKECMDGOALS),clean)
 endif
 endif
 
-circlebuffer.out: $(sources:.c=.o)
+circlebuffer$(EXE): $(sources:.c=.o)
 
 .PHONY: clean mrproper
 clean:
-	rm -f *.o *.out
+	rm -f *.o *.out, *$(EXE)
 
 mrproper: clean
 	rm -f *.d
