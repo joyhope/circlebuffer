@@ -8,7 +8,9 @@ else
 EXE = .exe
 endif
 
-all: circlebuffer$(EXE)
+PRJECT_NAME=circlebuffer
+
+all: $(PRJECT_NAME)$(EXE)
 
 CC=gcc
 
@@ -41,7 +43,7 @@ ifneq ($(MAKECMDGOALS),clean)
 endif
 endif
 
-circlebuffer$(EXE): $(sources:.c=.o)
+$(PRJECT_NAME)$(EXE): $(sources:.c=.o)
 
 .PHONY: clean mrproper
 clean:
